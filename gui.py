@@ -136,16 +136,16 @@ class ShowSeanceSeats:
         for row in result[1:]:
             sofa = False
             for seat in row:
-                canvas.create_rectangle(x1, y1, x2, y2, outline=seat[1], fill=seat[1])
-                canvas.create_text(x1+4, y1+3, anchor=tk.NW, text=seat[0])
                 if "sofa" in seat[2] and not sofa:
+                    canvas.create_rectangle(x1, y1, x2+30, y2, outline=seat[1], fill=seat[1])
+                    canvas.create_text(x1+4, y1+3, anchor=tk.NW, text=seat[0])
                     sofa = True
-                    x1 += 20
-                    x2 += 20
                 else:
+                    canvas.create_rectangle(x1, y1, x2, y2, outline=seat[1], fill=seat[1])
+                    canvas.create_text(x1+4, y1+3, anchor=tk.NW, text=seat[0])
                     sofa = False
-                    x1 += 30
-                    x2 += 30
+                x1 += 30
+                x2 += 30
             x1 = 20
             x2 = 40
             y1 += 30
@@ -155,10 +155,10 @@ class ShowSeanceSeats:
         canvas.create_text(x1+30, y1+33, anchor=tk.NW, text="Miejsce wolne")
         canvas.create_rectangle(x1, y1+60, x2, y2+60, outline="#FF0000", fill="#FF0000")
         canvas.create_text(x1+30, y1+63, anchor=tk.NW, text="Miejsce zajęte")
-        canvas.create_rectangle(x1, y1+90, x2, y2+90, outline="#00BFFF", fill="#00BFFF")
-        canvas.create_text(x1+30, y1+93, anchor=tk.NW, text="Wolna Sofa")
-        canvas.create_rectangle(x1, y1+120, x2, y2+120, outline="#FFCCCB", fill="#FFCCCB")
-        canvas.create_text(x1+30, y1+123, anchor=tk.NW, text="Zajęta Sofa")
+        canvas.create_rectangle(x1, y1+90, x2+30, y2+90, outline="#00BFFF", fill="#00BFFF")
+        canvas.create_text(x1+60, y1+93, anchor=tk.NW, text="Wolna Sofa")
+        canvas.create_rectangle(x1, y1+120, x2+30, y2+120, outline="#FFCCCB", fill="#FFCCCB")
+        canvas.create_text(x1+60, y1+123, anchor=tk.NW, text="Zajęta Sofa")
         canvas.create_rectangle(x1, y1+150, x2, y2+150, outline="#0000FF", fill="#0000FF")
         canvas.create_text(x1+30, y1+153, anchor=tk.NW, text="Miejsce dla niepełnosprawnych")
         canvas.grid()
